@@ -20,7 +20,7 @@ packages = [
 
 dependencies = [
     'unidecode==1.2.0',
-    'SciXPipelineUtils @ git+https://github.com/seasidesparrow/SciXPipelineUtils@08472655207891c7ec8b83fe65ecb305e2c0d8e0',
+    'SciXPipelineUtils @ git+https://github.com/seasidesparrow/SciXPipelineUtils@ff4087159f61ff88cdd9fa5e6aae743cfb607341',
     'roman==5.2',
 ]
 
