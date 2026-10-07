@@ -1,12 +1,12 @@
 [project]
-name = "scixenrich"
+name = "ingestenrich"
 version = "1.0.0"
 description = "SciX Enrichment Pipeline library"
 authors = [{ name = "Matthew Templeton", email = "matthew.templeton@cfa.harvard.edu"}]
 license = { text = "MIT" }
 readme = "README.md"
 repository = "https://github.com/adsabs/SciXIngestEnrichment"
-documentation = "https://scixenrich.readthedocs.io"
+documentation = "https://ingestenrich.readthedocs.io"
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
@@ -27,7 +27,7 @@ dependencies = [
 
 [project.urls]
 Source = "https://github.com/adsabs/SciXIngestEnrichment"
-Documentation = "https://scixenrich.readthedocs.io"
+Documentation = "https://ingestenrich.readthedocs.io"
 
 
 [project.optional-dependencies]
@@ -56,7 +56,7 @@ docs = [
 [tool.semantic_release]
 branch = "main"
 version_toml = "pyproject.toml:project.version"
-version_variable = "scixenrich/version.py:__version__"
+version_variable = "ingestenrich/version.py:__version__"
 build_command = "flit build"
 
 [tool.pytest.ini_options]
@@ -72,7 +72,7 @@ skip_covered = true
 
 [tool.isort]
 profile = "black"
-known_first_party = ["scixenrich", "tests"]
+known_first_party = ["ingestenrich", "tests"]
 
 [tool.black]
 line-length = 99 # override black's default line-length
@@ -85,7 +85,7 @@ build-backend = "flit_core.buildapi"
 # see setup.py for explanation of these
 [xsetup.entry_points]
 console_scripts = [
-    "scixenrich=scixenrich.cli:cli",
+    "ingestenrich=ingestenrich.cli:cli",
 ]
 [xsetup]
 scripts = [
