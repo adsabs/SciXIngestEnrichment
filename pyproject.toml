@@ -1,0 +1,92 @@
+[project]
+name = "scixenrich"
+version = "1.0.0"
+description = "SciX Enrichment Pipeline library"
+authors = [{ name = "Matthew Templeton", email = "matthew.templeton@cfa.harvard.edu"}]
+license = { text = "MIT" }
+readme = "README.md"
+repository = "https://github.com/adsabs/SciXIngestEnrichment"
+documentation = "https://scixenrich.readthedocs.io"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries",
+]
+packages = [
+    "ingestenrich",
+]
+
+dependencies = [
+    'unidecode==1.2.0',
+    'SciXPipelineUtils @ git+https://github.com/seasidesparrow/SciXPipelineUtils@08472655207891c7ec8b83fe65ecb305e2c0d8e0',
+    'roman==5.2',
+]
+
+
+[project.urls]
+Source = "https://github.com/adsabs/SciXIngestEnrichment"
+Documentation = "https://scixenrich.readthedocs.io"
+
+
+[project.optional-dependencies]
+dev = [
+    'black==26.1.0',
+    'flake8==7.3.0',
+    'isort==7.0.0',
+    'pytest==9.0.2',
+    'pyupgrade==3.21.2',
+    'pytest-mock==3.15.1',
+    'pre-commit==4.5.1',
+    'coveralls==4.0.2',
+    'mock==5.2.0',
+    'coverage==7.13.4',
+    'pytest-cov==7.0.0',
+    'pytest-cookies==0.7.0',
+    'semantic-release==0.1.0',
+]
+docs = [
+    'Sphinx==7.2.6',
+    'myst-parser==2.0.0',
+    'sphinx-rtd-theme==2.0.0'
+]
+
+
+[tool.semantic_release]
+branch = "main"
+version_toml = "pyproject.toml:project.version"
+version_variable = "scixenrich/version.py:__version__"
+build_command = "flit build"
+
+[tool.pytest.ini_options]
+addopts = "-v -Wdefault --cov=scixenrich"
+cache_dir = ".tmp/"
+
+[tool.coverage.run]
+data_file = ".tmp/.coverage"
+
+[tool.coverage.report]
+skip_empty = true
+skip_covered = true
+
+[tool.isort]
+profile = "black"
+known_first_party = ["scixenrich", "tests"]
+
+[tool.black]
+line-length = 99 # override black's default line-length
+
+[build-system]
+requires = ["setuptools==60.10.0", "wheel", "flit_core >=3.2,<4", "ppsetuptools==2.0.2"]
+build-backend = "flit_core.buildapi"
+#build-backend = "setuptools.build_meta"
+
+# see setup.py for explanation of these
+[xsetup.entry_points]
+console_scripts = [
+    "scixenrich=scixenrich.cli:cli",
+]
+[xsetup]
+scripts = [
+]
